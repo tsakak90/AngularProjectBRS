@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BugsService {
 
-  private readonly endpoint = 'https://bug-report-system-server.herokuapp.com/bugs?sort=';
+  private readonly endpoint = 'https://bug-report-system-server.herokuapp.com/bugs?size=100&sort=';
 
   constructor(private http: HttpClient) {}
 

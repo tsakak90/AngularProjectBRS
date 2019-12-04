@@ -12,18 +12,20 @@ export class ReportListofBugsComponent implements OnInit {
   title = 'BRSApp';
   lstbugs: BugList[];
   form: FormGroup;
-  reverseSort1: false;
-  reverseSort2: false;
-  reverseSort3: false;
-  reverseSort4: false;
-  reverseSort5: false;
 
+  sortdirection = {
+    title: false,
+    priority: false,
+    reporter: false,
+    createdAt: false,
+    status: false
+  }
 
   constructor(private bugsService: BugsService) {}
 
   ngOnInit() {
     this.form = new FormGroup({});
-    this.sortby('title', this.reverseSort1);
+    this.sortby('title', this.sortdirection.title);
   }
 
   sortby(column: string, sortedDirection: boolean) {
@@ -34,9 +36,10 @@ export class ReportListofBugsComponent implements OnInit {
       direction = 'desc';
     }
     this.bugsService.getlistofBugs(column, direction).subscribe((data) => {
-      console.log(data);
+      console.log(data); 
       this.lstbugs = data;
     });
+    this.sortdirection[column] = !this.sortdirection[column];
   }
 
 }
