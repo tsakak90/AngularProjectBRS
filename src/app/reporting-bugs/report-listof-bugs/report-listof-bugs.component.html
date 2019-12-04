@@ -1,0 +1,41 @@
+<form [formGroup]= "form">
+
+  <div class = "titlestyle" > Bugs Reporting System </div>
+
+  <table class= "table table-striped" >
+      <thead>
+        <tr>
+          <th scope="col" style="width:300px" (click)="sortby ('title', reverseSort1 = !reverseSort1)"> Title
+              <span [hidden]="reverseSort1">^</span>
+              <span [hidden]="!reverseSort1">v</span>
+          </th>
+          <th scope="col" style="width:100px" (click)="sortby ('priority', reverseSort2 = !reverseSort2)"> Priority
+              <span [hidden]="reverseSort2">^</span>
+              <span [hidden]="!reverseSort2">v</span>
+          </th>
+          <th scope="col" style="width:120px" (click)="sortby ('reporter', reverseSort3 = !reverseSort3)"> Reporter
+              <span [hidden]="reverseSort3">^</span>
+              <span [hidden]="!reverseSort3">v</span>
+          </th>
+          <th scope="col" style="width:150px" (click)="sortby ('createdAt', reverseSort4 = !reverseSort4)"> Date Created
+              <span [hidden]="reverseSort4">^</span>
+              <span [hidden]="!reverseSort4">v</span>
+          </th>
+          <th scope="col" style="width:150px" (click)="sortby ('status', reverseSort5 = !reverseSort5)" > Status
+              <span [hidden]="reverseSort5">^</span>
+              <span [hidden]="!reverseSort5">v</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of lstbugs">
+        <td> {{ item.title }} </td>
+        <td> {{ item.priority }} </td>
+        <td> {{ item.reporter }} </td>
+        <td> {{ item.createdAt | date:"dd/MM/yyyy" }} </td>
+        <td> {{ item.status }} </td>
+      </tr>
+      </tbody>
+  </table>
+</form>
+
