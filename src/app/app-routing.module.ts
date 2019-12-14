@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BugInsertingComponent } from './reporting-bugs/bug-inserting/bug-inserting.component';
+import { ReportListofBugsComponent } from './reporting-bugs/report-listof-bugs/report-listof-bugs.component';
 
 const routes: Routes = [
-  // {path: 'parenta', component: ParentaComponent, children: [ {path: 'childa', component: ChildaComponent}]},
+  {path: '', component: ReportListofBugsComponent},
+  {path: 'bug-inserting', component: BugInsertingComponent}
 ];
 
 @NgModule({
