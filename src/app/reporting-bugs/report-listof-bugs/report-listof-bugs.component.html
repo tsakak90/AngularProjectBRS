@@ -1,29 +1,42 @@
 <form [formGroup]= "form">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-brand" href="#"><img src="assets/logo.png"> Bugs Reporting System </div>
+      <!-- <div class = "titlestyle" > Bugs Reporting System </div> -->
+      <!-- <a class="col-sm-6" > Bugs Reporting System  </a> -->
+  </nav>
 
-  <div class = "titlestyle" > Bugs Reporting System </div>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" >
+          <button class = "btn btnstyle" (click)="addBug()" style = 'text-align: right'> + Create Bug
+              <!-- <router-outlet> </router-outlet> -->
+            </button>
+        </div>
+    </div>
+  </div>
 
-  <table class= "table table-striped" >
+  <table class= "table table-striped">
       <thead>
         <tr>
           <th scope="col" style="width:300px" (click)="sortby ('title', sortdirection.title)"> Title
-              <span [hidden]="!sortdirection.title">^</span>
-              <span [hidden]="sortdirection.title">v</span>
+              <span [hidden]="sortdirection.title === undefined || !sortdirection.title">^</span>
+              <span [hidden]="sortdirection.title === undefined || sortdirection.title">v</span>
           </th>
           <th scope="col" style="width:100px" (click)="sortby ('priority', sortdirection.priority)"> Priority
-              <span [hidden]="!sortdirection.priority">^</span>
-              <span [hidden]="sortdirection.priority">v</span>
+              <span [hidden]="sortdirection.priority === undefined || !sortdirection.priority">^</span>
+              <span [hidden]="sortdirection.priority === undefined || sortdirection.priority">v</span>
           </th>
           <th scope="col" style="width:120px" (click)="sortby ('reporter', sortdirection.reporter)"> Reporter
-              <span [hidden]="!sortdirection.reporter">^</span>
-              <span [hidden]="sortdirection.reporter">v</span>
+              <span [hidden]="sortdirection.reporter === undefined || !sortdirection.reporter">^</span>
+              <span [hidden]="sortdirection.reporter === undefined || sortdirection.reporter">v</span>
           </th>
           <th scope="col" style="width:150px" (click)="sortby ('createdAt', sortdirection.createdAt)"> Date Created
-              <span [hidden]="!sortdirection.createdAt">^</span>
-              <span [hidden]="sortdirection.createdAt">v</span>
+              <span [hidden]="sortdirection.createdAt === undefined || !sortdirection.createdAt">^</span>
+              <span [hidden]="sortdirection.createdAt === undefined || sortdirection.createdAt">v</span>
           </th>
           <th scope="col" style="width:150px" (click)="sortby ('status', sortdirection.status)" > Status
-              <span [hidden]="!sortdirection.status">^</span>
-              <span [hidden]="sortdirection.status">v</span>
+              <span [hidden]="sortdirection.status === undefined || !sortdirection.status">^</span>
+              <span [hidden]="sortdirection.status === undefined || sortdirection.status">v</span>
           </th>
         </tr>
       </thead>
@@ -37,5 +50,15 @@
       </tr>
       </tbody>
   </table>
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-2" >Page Number: {{currentPage}}</div>
+          <div class="col-sm-4" >Showing {{entriesfrom}} to {{entriesto}} entries</div>
+          <div class="col-sm-6" >
+            <button class = "btn btnstyle" (click)="previousPage()" [disabled] = "isPrevDisabled" style = 'text-align: right'> Previous(<) </button>
+            <button class = "btn btnstyle" (click)="nextPage()" [disabled] = "isNextDisabled" style = 'text-align: right'> Next(>) </button>
+          </div>
+      </div>
+  </div>
 </form>
 

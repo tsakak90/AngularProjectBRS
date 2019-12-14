@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class BugsService {
 
-  private readonly endpoint = 'https://bug-report-system-server.herokuapp.com/bugs?size=100&sort=';
+  private readonly endpoint = 'https://bug-report-system-server.herokuapp.com/bugs?';
 
   constructor(private http: HttpClient) {}
 
-  getlistofBugs(column: string, direction: string): Observable<any> {
-    const finalendpoint = this.endpoint + column + ',' + direction;
+  getlistofBugs(size: number, column: string, direction: string, page: number): Observable<any> {
+    const finalendpoint = this.endpoint + 'size=' + size + '&sort=' + column + ',' + direction + '&page=' + page;
     return this.http.get(finalendpoint);
   }
 

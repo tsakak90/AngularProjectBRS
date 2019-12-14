@@ -1,4 +1,4 @@
-.titlestyle{
+nav,a{
   font-size: large;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
@@ -10,3 +10,15 @@
   position: relative;
  }
 
+.btnstyle{
+  color: black;
+  background-color: lightskyblue;
+}
+
+button:disabled {
+  background-color: lightgrey;
+}
+
+img{
+  height: 45px;
+}
