@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NewBugService } from './new-bug-service.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class BugInsertingComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(private newBugService: NewBugService, private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
