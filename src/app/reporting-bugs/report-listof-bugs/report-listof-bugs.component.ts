@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class ReportListofBugsComponent implements OnInit {
 
-  constructor(private bugsService: BugsService) { }
+  constructor(private bugsService: BugsService, private router: Router) { }
 
   title = 'BRSApp';
   lstbugs: BugList[];
@@ -21,7 +21,7 @@ export class ReportListofBugsComponent implements OnInit {
   entriesfrom: number;
   entriesto: number;
   listsize: number;
-  totalrecords : number;
+  totalrecords: number;
 
   pushNext: boolean;
   isNextDisabled: boolean;
@@ -29,7 +29,6 @@ export class ReportListofBugsComponent implements OnInit {
 
   sortdirection = this.initDirection();
 
-<<<<<<< HEAD
   private initDirection() {
     return {
       title: undefined,
@@ -39,9 +38,6 @@ export class ReportListofBugsComponent implements OnInit {
       status: undefined
     };
   }
-=======
-  constructor(private bugsService: BugsService, private router: Router) { }
->>>>>>> 58fcf4e5b95c32d1cd81d518b839e5a14adc7497
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -129,13 +125,8 @@ export class ReportListofBugsComponent implements OnInit {
     this.retrieveBugs('title', this.sortdirection.title);
   }
 
-<<<<<<< HEAD
   addBug() {
-    console.log('new');
-=======
-  addBug(){
     this.router.navigate(['bug-inserting']);
->>>>>>> 58fcf4e5b95c32d1cd81d518b839e5a14adc7497
   }
 
   search() {
