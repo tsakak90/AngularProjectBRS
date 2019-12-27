@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BugList } from '../bug-list';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BugsService } from '../bugs.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-listof-bugs',
@@ -28,6 +29,7 @@ export class ReportListofBugsComponent implements OnInit {
 
   sortdirection = this.initDirection();
 
+<<<<<<< HEAD
   private initDirection() {
     return {
       title: undefined,
@@ -37,6 +39,9 @@ export class ReportListofBugsComponent implements OnInit {
       status: undefined
     };
   }
+=======
+  constructor(private bugsService: BugsService, private router: Router) { }
+>>>>>>> 58fcf4e5b95c32d1cd81d518b839e5a14adc7497
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -124,8 +129,13 @@ export class ReportListofBugsComponent implements OnInit {
     this.retrieveBugs('title', this.sortdirection.title);
   }
 
+<<<<<<< HEAD
   addBug() {
     console.log('new');
+=======
+  addBug(){
+    this.router.navigate(['bug-inserting']);
+>>>>>>> 58fcf4e5b95c32d1cd81d518b839e5a14adc7497
   }
 
   search() {

@@ -1,0 +1,47 @@
+<form [formGroup]= "form">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-brand" href="#"><img src="assets/logo.png"> Bugs Inserting Form </div>
+  </nav>
+
+
+  <div class= 'mt-5'>      <label>Bug Short</label>
+    <input formControlName="title" type="text">    </div>
+
+  <div>      <label>Bug Description</label>
+    <input formControlName="description" type="text">    </div>
+
+  <div> <label>Priority</label>
+    <select>
+      <option value="Minor">Minor</option>
+      <option value="Major">Major</option>
+      <option value="Critical">Critical</option>
+    </select>
+   </div>
+
+   <div> <label>Reporter</label>
+    <select>
+      <option value="QA">QA</option>
+      <option value="PO">PO</option>
+      <option value="DEV">DEV</option>
+    </select>
+   </div>
+
+   <div> <label>Status</label>
+    <select>
+      <option value="Ready for test">Ready for test</option>
+      <option value="Done">Done</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+   </div>
+
+   <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-12" style="text-align: right;" >
+            <button class = "btn btnstyle" (click)="submit()"> Submit </button>
+            <button class = "btn btnstyle" (click)="back()"> Cancel </button>
+          </div>
+      </div>
+    </div>
+
+</form>
