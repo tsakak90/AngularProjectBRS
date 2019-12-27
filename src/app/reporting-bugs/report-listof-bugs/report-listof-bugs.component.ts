@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BugList } from '../bug-list';
 import { FormGroup } from '@angular/forms';
 import { BugsService } from '../bugs.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-listof-bugs',
@@ -30,7 +31,7 @@ export class ReportListofBugsComponent implements OnInit {
     status: undefined
   };
 
-  constructor(private bugsService: BugsService) { }
+  constructor(private bugsService: BugsService, private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({});
@@ -100,6 +101,6 @@ export class ReportListofBugsComponent implements OnInit {
   }
 
   addBug(){
-    console.log('new');
+    this.router.navigate(['bug-inserting']);
   }
 }
