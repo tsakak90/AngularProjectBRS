@@ -11,9 +11,6 @@ export class NewBugService {
 
   constructor(private http: HttpClient) {}
 
-  getlistofBugs(size: number, column: string, direction: string, page: number): Observable<any> {
-    const finalendpoint = this.endpoint + 'size=' + size + '&sort=' + column + ',' + direction + '&page=' + page;
-    return this.http.get(finalendpoint);
-  }
-
+  //newBug(customer: Customer): Observable<any> {    return this.http.post(this.endpoint, customer);  }
+  
 }
