@@ -21,4 +21,5 @@ import { RouterModule } from '@angular/router';
     BugInsertingComponent
   ]
 })
+
 export class ReportingBugsModule { }
