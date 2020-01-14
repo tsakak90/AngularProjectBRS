@@ -86,7 +86,6 @@ export class ReportListofBugsComponent implements OnInit {
     this.sortdirection[column] = !this.sortdirection[column];
   }
 
-
   trackEntries() {
       if (this.entriesfrom === 0 && this.lstbugs.length > 0) {
         this.entriesfrom = 1;
