@@ -16,4 +16,13 @@ export class BugsService {
     return this.http.get(finalendpoint);
   }
 
+  deleteBug(id: string) {
+    return this.http.delete(`${this.endpoint}/${id}`);
+  }
+
+  getBugsAfterDelete(): Observable<any> {
+    const finalendpoint = this.endpoint + "?sort=title,desc" + "&page=0";
+    return this.http.get(finalendpoint);
+  }
+
 }

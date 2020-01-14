@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NewBugService } from './new-bug-service.service';
 
 @Component({
@@ -10,10 +10,15 @@ import { NewBugService } from './new-bug-service.service';
 })
 export class BugInsertingComponent implements OnInit {
   form: FormGroup;
+  bugId: string;
 
-  constructor(private newBugService: NewBugService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private newBugService: NewBugService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.bugId = this.activatedRoute.snapshot.params["id"]
     this.initializeFormState();
   }
   initializeFormState() {
@@ -25,7 +30,7 @@ export class BugInsertingComponent implements OnInit {
         description: ['', Validators.required],
         status: ['', Validators.required]
       }
-    )
+    );
   }
 
   submit() {

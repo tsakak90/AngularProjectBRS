@@ -88,6 +88,23 @@ export class ReportListofBugsComponent implements OnInit {
     this.sortdirection[column] = !this.sortdirection[column];
   }
 
+ //deleteBug(bugId: string){
+ //
+ //   this.bugsService.deleteBug(bugId).subscribe(response =>
+ //    {
+ //      console.log(response);
+ //      if (response){
+ //        let newList = [...this.lstbugs];
+ //        newList.splice(index, 1);
+ //        this.lstbugs = [...newList];
+ //         this.bugsService.getBugsAfterDelete().subscribe(response =>
+ //            {
+ //             this.lstbugs = response;
+ //          });
+ //      }
+ //    })
+ //}
+
   previousPage() {
     this.pushNext = false;
     this.currentPage -= 1;

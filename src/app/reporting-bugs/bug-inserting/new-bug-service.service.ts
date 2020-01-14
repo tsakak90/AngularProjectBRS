@@ -16,11 +16,11 @@ export class NewBugService {
         return this.http.post(this.endpoint, bug );
         }
 
-  editBug(id: string, bug: BugList) {
-        return this.http.put(`${this.endpoint}/${id}`, bug);
+  getBug(id: string): Observable<any> {
+          return this.http.get(`${this.endpoint}/${id}`)
         }
 
-  deleteBug(id: string) {
-        return this.http.delete(`${this.endpoint}/${id}`);
+  editBug(id: string, bug: BugList) {
+        return this.http.put(`${this.endpoint}/${id}`, bug);
         }
 }
